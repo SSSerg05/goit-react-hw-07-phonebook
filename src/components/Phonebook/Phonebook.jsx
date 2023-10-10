@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 // redux
 import { fetchContacts } from "redux/operations";
-import { selectContacts, selectError, selectLoading } from "redux/selectors";
+import { selectError, selectLoading } from "redux/selectors";
 
 // components
 import { Section } from "../Section/Section";
@@ -28,7 +28,7 @@ export const Phonebook = () => {
   
   return (
     <DeskPhonebook>
-      <Section title={"Phonebook: HW-07 Redux"}>
+      <Section title={"Phonebook: HW-07 Redux, AsyncThunk"}>
         <Form />
       </Section>
         

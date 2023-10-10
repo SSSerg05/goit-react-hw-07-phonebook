@@ -53,48 +53,44 @@ const contactsSlice = createSlice({
     //       break;
     //     }
     //   }
-    // },
-
-    extraReducers: {
-      [fetchContacts.pending]: handlePending,
-      [fetchContacts.fulfilled](state, action) {
+  },
+  extraReducers: (builder) => 
+    builder
+      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = action.payload;
-      },
-      [fetchContacts.rejected]: handleRejected,
-
-      [addContact.pending]: handlePending,
-      [addContact.fulfilled](state, action) {
+      })
+      .addCase(fetchContacts.rejected, handleRejected)
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items.push(action.payload);
-      },
-      [addContact.rejected]: handleRejected,
-
-      [deleteContact.pending]: handlePending,
-      [deleteContact.fulfilled](state, action) {
+      })
+      .addCase(addContact.rejected, handleRejected)
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         const index = state.items.findIndex(
           contact => contact.id === action.payload.id
         );
         state.items.splice(index, 1);
-      },
-      [deleteContact.rejected]: handleRejected,
-
-      [toggleCompleted.pending]: handlePending,
-      [toggleCompleted.fulfilled](state, action) {
+      })
+      .addCase(deleteContact.rejected, handleRejected)
+      .addCase(toggleCompleted.pending, handlePending)
+      .addCase(toggleCompleted.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         const index = state.items.findIndex(
           contact => contact.id === action.payload.id
         );
         state.items.splice(index, 1, action.payload);
-      },
-      [toggleCompleted.rejected]: handleRejected,
-    },
-  },
+      })
+      .addCase(toggleCompleted.rejected, handleRejected)
+      .addDefaultCase((state, action) => {})
 });
 
 export const contactsReducer = contactsSlice.reducer;
