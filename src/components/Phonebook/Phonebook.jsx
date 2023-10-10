@@ -11,7 +11,7 @@ import { Form } from "./Form/Form";
 import { Search } from "./Search/Search";
 import { Filter } from "./Filter/Filter";
 import { ContactsList } from "./ContactsList/ContactsList";
-
+import { Loader } from "components/Loader/Loader";
 // style
 import { DeskPhonebook } from "./Phonebook.styled";
 
@@ -38,6 +38,9 @@ export const Phonebook = () => {
       </Section>
       
       <Section title={"Contacts"}>
+
+        { loading && <Loader />}
+
         { loading && !error && <b>Request in progress...</b> }
         <ContactsList />
       </Section>
