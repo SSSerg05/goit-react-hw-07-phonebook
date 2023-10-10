@@ -14,7 +14,7 @@ export const Phonebook = () => {
   
   return (
     <DeskPhonebook>
-      <Section title={"Phonebook: HW-6 Redux"}>
+      <Section title={"Phonebook: HW-07 Redux"}>
         <Form />
       </Section>
         
