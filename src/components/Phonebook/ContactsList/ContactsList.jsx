@@ -6,7 +6,6 @@ import { List, ListItem, } from './ContactsList.styled';
 
 
 export const ContactsList = () => {
-
   const visibleContacts = useSelector(selectVisibleContacts);
 
   if (!visibleContacts.length) {
