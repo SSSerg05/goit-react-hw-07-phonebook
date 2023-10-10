@@ -4,7 +4,9 @@ import { selectVisibleContacts } from 'redux/selectors';
 import { Contact } from '../Contact/Contact';
 import { List, ListItem, } from './ContactsList.styled';
 
-export const ContactsList = () => { 
+
+export const ContactsList = () => {
+
   const visibleContacts = useSelector(selectVisibleContacts);
 
   if (!visibleContacts.length) {
@@ -12,7 +14,6 @@ export const ContactsList = () => {
       <p>Sorry, you don't have more contacts</p>
     )
   }
-
 
   return (
     <List>

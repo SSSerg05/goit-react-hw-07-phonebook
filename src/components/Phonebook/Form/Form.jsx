@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { addContact } from "redux/contactsSlice";
+import { addContact } from "redux/operations";
 import { FieldBox, FieldLabel, FieldPosition, FieldInput, Button } from "./Form.styled"
 import { selectContacts } from "redux/selectors";
 
