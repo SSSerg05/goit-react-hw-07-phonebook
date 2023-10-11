@@ -2,9 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchContacts, addContact, deleteContact, toggleCompleted } from "./operations";
 
-// data
-//import initialContacts from "../data/contactsInitial.json";
-
 const handlePending = state => {
   state.loading = true;
 };
@@ -15,7 +12,7 @@ const handleRejected = (state, action) => {
 };
 
 const contactsInitialState = { 
-  items: [],  //initialContacts ?? [],
+  items: [],
   loading: false,
   error: null,
 };
@@ -24,35 +21,6 @@ const contactsSlice = createSlice({
   name: "contacts",
   initialState: contactsInitialState,
   reducers: {
-    // addContact: {
-    //   reducer(state, action) {
-    //     state.items.push(action.payload);
-    //   },
-
-    //   prepare({name, number}) {
-    //     return {
-    //       payload: {
-    //         id: nanoid(),
-    //         name, 
-    //         number,
-    //         selected: false,
-    //       },
-    //     };
-    //   },
-    // },
-
-    // deleteContact(state, action) {
-    //   const index = state.items.findIndex(contact => contact.id === action.payload);
-    //   state.items.splice(index, 1);
-    // },
-
-    // toggleCompleted(state, action) {
-    //   for (const contact of state.items) {
-    //     if (contact.id === action.payload) {
-    //       contact.selected = !contact.selected;
-    //       break;
-    //     }
-    //   }
   },
   extraReducers: (builder) => 
     builder
